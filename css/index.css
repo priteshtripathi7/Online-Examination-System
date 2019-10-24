@@ -8,6 +8,15 @@
     box-shadow:inset 0 0 0 2000px rgba(0,0,0,0.5);
 }
 
+#login-stu-full-size{
+    background-image: url('../img/login_stu.jpg');
+    height: 100vh; 
+    width: 100vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .main-heading{
     padding-top: 30vh;
     color: #00B2EE;
