@@ -11,29 +11,39 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <title>Professor's Login</title>
+        <title>Admin's Login</title>
     </head>
     <body>
+        <?php 
+            require './../php_func/db.php';
+            require './../php_func/functions.php';
+
+        ?>
         <div id="login-stu-full-size">
+            <div class="container">
+                <div class="row" style="max-width: 45rem;">
+                    
+                </div>
+            </div>
             <div class="card container"  style="max-width: 45rem; background-color: rgba(0,0,0,0.4) !important; color:white; top: 25vh;">
-                <h5 class="card-header display-4">Professor's Login</h5>
+                <h5 class="card-header display-4">Admin Login</h5>
                 <div class="card-body">
-                    <form>
+                    <form method="POST" action="./admin.php">
                         <div class="form-group row">
                             <label for="prof-username" class="col-sm-2 col-form-label">Username</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="prof-username" placeholder="Username">
+                                <input type="text" class="form-control" id="prof-username" placeholder="Username" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="prof-pwd" class="col-sm-2 col-form-label">Password</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="prof-pwd" placeholder="Password">
+                                <input type="text" class="form-control" id="prof-pwd" placeholder="Password" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-10 ">
-                                <button type="submit" class="btn btn-primary">Login</button>
+                                <input type="submit" class="btn btn-primary btn-lg" value="Login" name="login" id="login" onclick="<?php validate_admin_login() ?>"></button>
                             </div>
                         </div>
                     </form>
