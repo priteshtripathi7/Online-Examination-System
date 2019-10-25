@@ -1,3 +1,8 @@
+<?php 
+    require './../php_func/functions.php';
+    validate_admin_login();
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,17 +19,13 @@
         <title>Admin's Login</title>
     </head>
     <body>
-        <?php 
-            require './../php_func/db.php';
-            require './../php_func/functions.php';
-
-        ?>
         <div id="login-stu-full-size">
+
             <div class="container">
-                <div class="row" style="max-width: 45rem;">
-                    
+                <div class="row" id="error-div" style="max-width: 45rem;">
                 </div>
             </div>
+
             <div class="card container"  style="max-width: 45rem; background-color: rgba(0,0,0,0.4) !important; color:white; top: 25vh;">
                 <h5 class="card-header display-4">Admin Login</h5>
                 <div class="card-body">
@@ -32,18 +33,18 @@
                         <div class="form-group row">
                             <label for="prof-username" class="col-sm-2 col-form-label">Username</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="prof-username" placeholder="Username" required>
+                                <input type="text" class="form-control" name="prof-username" id="prof-username" placeholder="Username" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="prof-pwd" class="col-sm-2 col-form-label">Password</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="prof-pwd" placeholder="Password" required>
+                                <input type="text" class="form-control" name="prof-pwd" id="prof-pwd" placeholder="Password" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-10 ">
-                                <input type="submit" class="btn btn-primary btn-lg" value="Login" name="login" id="login" onclick="<?php validate_admin_login() ?>"></button>
+                                <input type="submit" class="btn btn-primary btn-lg" value="Login" name="login" id="login">
                             </div>
                         </div>
                     </form>
