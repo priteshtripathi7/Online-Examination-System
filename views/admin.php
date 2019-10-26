@@ -1,8 +1,3 @@
-<?php 
-    require './../php_func/functions.php';
-    validate_admin_login();
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,12 +16,17 @@
     <body>
         <div id="login-stu-full-size">
 
-            <div class="container">
-                <div class="row" id="error-div" style="max-width: 45rem;">
+            <div class="container" style="max-width: 45rem !important">
+                <div class="row text-center" id="error-div" style="max-width: 45rem;">
+                    <!-- Error Alert -->
+                    <?php
+                        require "./../php/functions.php";
+                        validate_admin_login();
+                    ?>
                 </div>
             </div>
 
-            <div class="card container"  style="max-width: 45rem; background-color: rgba(0,0,0,0.4) !important; color:white; top: 25vh;">
+            <div class="card container"  style="max-width: 45rem; background-color: rgba(0,0,0,0.4) !important; color:white; top: 15vh;">
                 <h5 class="card-header display-4">Admin Login</h5>
                 <div class="card-body">
                     <form method="POST" action="./admin.php">
@@ -39,7 +39,7 @@
                         <div class="form-group row">
                             <label for="prof-pwd" class="col-sm-2 col-form-label">Password</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="prof-pwd" id="prof-pwd" placeholder="Password" required>
+                                <input type="password" class="form-control" name="prof-pwd" id="prof-pwd" placeholder="Password" required>
                             </div>
                         </div>
                         <div class="form-group row">
