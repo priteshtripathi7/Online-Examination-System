@@ -1,5 +1,6 @@
 <?php
-
+    require './../PHPMailerAutoload.php';
+    require './../php/config.php';
     // ***************   ADMIN LOGIN PAGE VALIDATION ********************//
 
     // FUNCTION 1 : This function checks whether the username and password are correct or not.
@@ -181,7 +182,7 @@
                 if(count($db_errors) == 0){
                     $mssg = "
                         <div class=\"alert alert-success alert-dismissible fade show \" role=\"alert\"  style=\"display:block !important; margin-left:auto !important; margin-right:auto !important;top:3vh !important;\">
-                            <strong>Success!</strong> The user is successfully added.
+                            <strong>Success!</strong> The user is successfully added and a mail has been sent to him.
                             <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
                                 <span aria-hidden=\"true\">&times;</span>
                             </button>
@@ -251,6 +252,7 @@
                     }else {
                         $count = 0;
                         $pwd = md5($username);
+                        
                         $query =    "INSERT INTO $occupation(".$occupation."_username, firstname, lastname, password, email)
                                         VALUES ('$username', '$firstname', '$lastname', '$pwd', '$email')";
                         $result = mysqli_query($con, $query);
@@ -265,12 +267,41 @@
                                         VALUES ('$cur_course', '$username')";
                             $result = mysqli_query($con, $query);
                             if(!$result){
-                                echo "Hello1";
                                 die("ERROR: Could not connect.");
                             }else{
                                 $count++;
                             }
                         }
+                        $mail = new PHPMailer;
+                        //$mail->SMTPDebug = 4;                                 // Enable verbose debug output
+                        $mail->isSMTP();                                      // Set mailer to use SMTP
+                        $mail->Host = "smtp.gmail.com";                       // Specify main and backup SMTP servers
+                        $mail->SMTPAuth = true;                               // Enable SMTP authentication
+                        $mail->Username = EMAIL;                              // SMTP username
+                        $mail->Password = PASSWORD;                           // SMTP password
+                        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+                        $mail->Port = 587;                                    // TCP port to connect to
+                        $mail->setFrom(EMAIL, 'Online-Examination-Admin');
+                        $mail->addAddress($email);     // Add a recipient
+                        $mail->addReplyTo(EMAIL);
+                        
+                        // $mail->addCC('cc@example.com');
+                        // $mail->addBCC('bcc@example.com');
+
+                        // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+                        // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+                        $mail->isHTML(true);                                  // Set email format to HTML
+
+                        $mail->Subject = 'You have been registed ... !!!';
+                        $mail->Body    = '<h1>This is to inform that you have been registered.....</h1>
+                                          by the ADMIN of the Online-Examination-System.<br>
+                                          <p>Your Username is <b>'.$username.'</b></p>
+                                          <p>Your Password is <b>'.$username.'</b></p>
+                                          ';
+                        $mail->AltBody = "This is to inform you that you have been registered to the institute online system
+                        by the Admin. Your username is ".$username." and password is ".$username." .";
+
+                        $mail->send();
                         return $errors;
                     }
                 }
