@@ -100,8 +100,11 @@
                         </fieldset>
 
                         <div class="form-group row">
-                            <div class="col-sm-10 ">
+                            <div class="col-sm-6 ">
                                 <input type="submit" class="btn btn-primary btn-lg" value="Add User" name="adduser" id="adduser">
+                            </div>
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-primary btn-lg float-right" name="adduser" id="adduser">LogOut</button>
                             </div>
                         </div>
                     </form>

@@ -13,25 +13,36 @@
     </head>
     <body>
         <div id="login-stu-full-size">
+
+            <div class="container" style="max-width: 45rem !important">
+                <div class="row text-center" id="error-div" style="max-width: 45rem;">
+                    <!-- Error Alert -->
+                    <?php
+                        require "./../php/functions_prof.php";
+                        validate_professor_login();
+                    ?>
+                </div>
+            </div>
+
             <div class="card container"  style="max-width: 45rem; background-color: rgba(0,0,0,0.4) !important; color:white; top: 25vh;">
                 <h5 class="card-header display-4">Professor's Login</h5>
                 <div class="card-body">
-                    <form>
+                    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
                         <div class="form-group row">
-                            <label for="prof-username" class="col-sm-2 col-form-label">Username</label>
+                            <label for="professor_username" class="col-sm-2 col-form-label">Username</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="prof-username" placeholder="Username" required>
+                                <input type="text" name="professor_username" class="form-control" id="professor_username" placeholder="Username" required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="prof-pwd" class="col-sm-2 col-form-label">Password</label>
+                            <label for="professor_password" class="col-sm-2 col-form-label">Password</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="prof-pwd" placeholder="Password" required>
+                                <input type="password" class="form-control" name="professor_password" id="professor_password" placeholder="Password" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-10 ">
-                                <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                            <input type="submit" class="btn btn-primary btn-lg" value="Login" name="login" id="login">
                             </div>
                         </div>
                     </form>

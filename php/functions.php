@@ -64,13 +64,17 @@
     function validate_add_user() {
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $errors = [];
-
+            $usercourses = [];
             $occupation  =      $_POST["occupation"];
             $firstname   =      $_POST["firstname"];
             $lastname    =      $_POST["lastname"];
             $username    =      $_POST["username"];
             $email       =      $_POST["email"];
-            $usercourses =      $_POST["usercourses"];
+            if(isset($_POST["usercourses"])){
+                for($i = 0; $i < count($_POST["usercourses"]); $i++){
+                    $usercourses[$i] = $_POST["usercourses"][$i];
+                }
+            }
             
             // VALIDATION FOR FIRSTNAME
             if(strlen($firstname) < 3){
