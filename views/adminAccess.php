@@ -66,31 +66,31 @@
                             <legend class="col-form-label col-sm-2 pt-0">User's Courses</legend>
                             <div class="col-sm-10">
                                 <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="usercourses[]" id="course1" value="cn">
+                                <input class="form-check-input" type="checkbox" name="usercourses[]" id="course1" value="Computer Networks">
                                 <label class="form-check-label" for="course1">
                                     Computer Networks
                                 </label>
                                 </div>
                                 <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="usercourses[]" id="course2" value="daa">
+                                <input class="form-check-input" type="checkbox" name="usercourses[]" id="course2" value="Design and Analysis of Algorithms">
                                 <label class="form-check-label" for="course2">
                                     Design and Analysis of Algorithms
                                 </label>
                                 </div>
                                 <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="usercourses[]" id="course3" value="aiml">
+                                <input class="form-check-input" type="checkbox" name="usercourses[]" id="course3" value="Artificial Intelligence and Machine Learning">
                                 <label class="form-check-label" for="course3">
                                     Artificial Intelligence and Machine Learning
                                 </label>
                                 </div>
                                 <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="usercourses[]" id="course4" value="mit">
+                                <input class="form-check-input" type="checkbox" name="usercourses[]" id="course4" value="Microprocessor and Interfacing Technology">
                                 <label class="form-check-label" for="course4">
                                     Microprocessor and Interfacing Technology
                                 </label>
                                 </div>
                                 <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="usercourses[]" id="course5" value="st3">
+                                <input class="form-check-input" type="checkbox" name="usercourses[]" id="course5" value="Software Tools 3   ">
                                 <label class="form-check-label" for="course5">
                                     Software Tools 3
                                 </label>

@@ -1,3 +1,8 @@
+<?php
+    require './../php/functions_makeTest.php';
+    saveTestToDB();
+?> 
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,8 +30,9 @@
     <body>
         
         <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-
+            <i class="fa fa-user-circle" aria-hidden="true" style="color:white; padding-left:2%; font-size: 20px;"></i>
             <span style="color:white; padding-left:2%;">
+                
                 <?php
                     $user = $_COOKIE["professor_loggedIn"];
                     echo $user;
@@ -36,7 +42,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             
-            <div class="collapse navbar-collapse float-right" id="navbarTogglerDemo03" style="padding-left:72vw;">
+            <div class="collapse navbar-collapse float-right" id="navbarTogglerDemo03" style="padding-left:65vw;">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     
                     <li class="nav-item">
@@ -57,7 +63,20 @@
         </div>
 
         <div class="container">
-            <form method="POST" action="">
+            <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" >
+
+                <div class="form-group row">
+                    <label for="test_subject" class="col-sm-2 col-form-label">Subject</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="test_subject" name="test_subject">
+
+                            <?php
+                                outputSubject();
+                            ?>
+
+                        </select>
+                    </div>
+                </div>
 
                 <div class="form-group row">
                     <label for="test_topic" class="col-sm-2 col-form-label">Topic of test:</label>
@@ -67,9 +86,16 @@
                 </div>
 
                 <div class="form-group row">
+                    <label for="test_time" class="col-sm-2 col-form-label">Time alloted in minutes:</label>
+                    <div class="col-sm-10">
+                        <input type="number" min="5" max="60" class="form-control" name="test_time" id="test_time" required>
+                    </div>
+                </div>
+
+                <div class="form-group row" style="display: none;">
                     <label for="number_of_questions" class="col-sm-2 col-form-label">Number of Questions:</label>
                     <div class="col-sm-10">
-                        <input type="number" class="form-control" name="number_of_questions" id="number_of_questions" value="0" disabled>
+                        <input type="number" class="form-control" name="number_of_questions" id="number_of_questions" value="0">
                     </div>
                 </div>
                 
@@ -90,12 +116,16 @@
                 <div class="text-center" style="padding-bottom: 15px;">
                     <input type="submit" class="btn btn-primary" name="submit" id="submit" value="Submit" >
                 </div>
-
+                
             </form>
         </div>
 
         <script>
-            document.getElementById('number_of_questions').value = '0';   
+            document.getElementById('number_of_questions').value = '0';
+            // window.onbeforeunload = function(){
+            //     return 'Are you sure you want to leave?';
+            // };
+            
         </script>
         <script src="./../js/app.js"></script>
     </body>

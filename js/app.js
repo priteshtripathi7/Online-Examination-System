@@ -24,14 +24,20 @@ const addQuestion = ()=>{
                     </div>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="question_${question_count}">Question:</label>
-                    <input type="text" name="question_${question_count}" id="question_${question_count}" class="form-control" required>
+                    <label for="this_is_question_${question_count}">Question:</label>
+                    <input type="text" name="this_is_question_${question_count}" id="this_is_question_${question_count}" class="form-control" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="question_${question_count}_num_of_options">Number of Inputs:</label>
                     <input type="number" name="question_${question_count}_num_of_options" id="question_${question_count}_num_of_options" class="form-control" min="2" max="6" required>
                 </div>
                 <div class="row col-md-12" id="question_${question_count}_option_list"></div>
+                <div class="form-group row col-md-12">
+                    <label for="question_${question_count}_correct_answer" class="col-sm-2 col-form-label">Correct Option number</label>
+                    <div class="col-sm-10">
+                    <input type="number" min="1" max="4" class="form-control" name="question_${question_count}_correct_answer" id="question_${question_count}_correct_answer" placeholder="Enter Option here">
+                    </div>
+                </div>
             </div>
     `;
 
