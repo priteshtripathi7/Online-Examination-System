@@ -1,7 +1,16 @@
+// QUESTION VARIABLE COUNT
 let question_count = 0;
+
+// FUNCTION :: ADDS A NEW QUESTION
 const addQuestion = ()=>{
+
+    //SELECTING DIVISION IN WHICH QUESTION IS TO BE ADDED
     const DOMElement = document.getElementById('questions_list');
+    
+    // INCREMENT QUESTIONS
     question_count++;
+
+    // HTML CONTENT
     let HTML = `
             <div class="form-row" id="question_${question_count}" style="margin: 15px; border:1px solid #e2e2e2; padding: 15px;">
                 <div class="col-md-12 row"  style="padding-top: 0.5em;">
@@ -25,27 +34,37 @@ const addQuestion = ()=>{
                 <div class="row col-md-12" id="question_${question_count}_option_list"></div>
             </div>
     `;
+
+    // ADDING QUESTION TO DOM
     DOMElement.insertAdjacentHTML("beforeend", HTML);
+
+    // UPDATING NUMBER OF QUESTIONS
     const questionCounter = document.getElementById('number_of_questions');
     console.log(questionCounter);
     let num_of_questions = parseInt(questionCounter.value);
     num_of_questions++;
     questionCounter.value = num_of_questions;
+
+    // ADD EVENT LISTENER THAT WILL ENABLE THE NUMBER OF OPTIONS
     addThisEventToInput();
 
 };
 
 const addThisEventToInput = ()=>{
+
+    // SELECTING DOM ELEMENTS
     const DOMElement = document.getElementById(`question_${question_count}_num_of_options`);
     const DIV = document.getElementById(`question_${question_count}_option_list`);
+
+    // ADDING EVENT LISTENERS
     DOMElement.addEventListener('input', function() { 
         DIV.innerHTML = ""; 
         let num_of_times = DOMElement.value;
         if(num_of_times == 1){
             num_of_times = 2;
         }
-        if(num_of_times > 6){
-            num_of_times = 6;
+        if(num_of_times > 4){
+            num_of_times = 4;
         }
         for(let i=0; i<num_of_times; i++){
             
@@ -60,15 +79,21 @@ const addThisEventToInput = ()=>{
             DIV.insertAdjacentHTML("beforeend", HTMLText);
         }
     });
+
 };
 
 const deleteQuestion = (e)=>{
+
+    // REMOVING THE REQUIRED NODE
     const parent_id = e.target.parentElement.parentElement.parentElement.id;
     const DOMElement = document.getElementById(parent_id);
     DOMElement.remove();
+
+    // UPDATING NUMBER OF QUESTIONS
     const questionCounter = document.getElementById('number_of_questions');
     console.log(questionCounter);
     let num_of_questions = parseInt(questionCounter.value);
     num_of_questions--;
     questionCounter.value = num_of_questions;
+
 };
