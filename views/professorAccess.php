@@ -59,15 +59,20 @@
 
         <div class="container">
             <div class="row">
+                
+                <?php
+                    require './../php/functions_profAccess.php';
+                    listOutTests();
+                ?>
 
                 <!--  TEMPLATE
-                    <div class="card col-sm-6 col-md-4" style="width: 8rem; padding: 2rem 2rem 2rem 2rem;">
-                    <img src="./../img/aiml.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
+                <div class="card col-sm-6 col-md-4" style="width: 8rem; padding: 2rem 2rem 2rem 2rem;">
+                <img src="./../img/aiml.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
                 </div>
                 <div class="card col-sm-6 col-md-4" style="width: 8rem; padding: 2rem 2rem 2rem 2rem;">
                     <img src="./../img/cn.jpg" class="card-img-top" alt="...">
