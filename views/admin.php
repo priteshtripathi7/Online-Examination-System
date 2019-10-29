@@ -1,3 +1,9 @@
+<?php
+    if(isset($_COOKIE["admin_loggedIn"])){
+        header("Location: http://localhost:8080/online-examination-system/views/adminAccess.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html>
     <head>

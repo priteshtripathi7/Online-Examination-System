@@ -25,20 +25,28 @@
     <body>
         
         <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+
+            <span style="color:white; padding-left:2%;">
+                <?php
+                    $user = $_COOKIE["professor_loggedIn"];
+                    echo $user;
+                ?>
+            </span>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <div class="collapse navbar-collapse float-right" id="navbarTogglerDemo03" style="padding-left:72vw;">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Test Results</a>
+                        <a class="nav-link" href="./professorAccess.php">Test Results</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Make Test<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Logout</a>
+                        <a class="nav-link btn btn-primary" href="./../logout-system/prof_logout.php" style="color:white;">Logout</a>
                     </li>
                 </ul>
             </div>

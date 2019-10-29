@@ -24,6 +24,11 @@
                     $row_cnt = mysqli_num_rows($result);
                     if($row_cnt == 1){
                         if($row["password"] == $password){
+
+                            setcookie("admin_loggedIn", $username, time() + (86400 * 30), '/');
+                            setcookie("professor_loggedIn", "", time() - 3600,"/");
+                            setcookie("student_loggedIn", "", time() - 3600,"/");
+
                             header("Location: http://localhost:8080/online-examination-system/views/adminAccess.php");
                         }else{
                             $mssg = "

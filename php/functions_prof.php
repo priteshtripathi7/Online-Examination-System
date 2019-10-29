@@ -42,7 +42,11 @@
 
                         if($row["password"] == md5($password)){
 
-                            // IF PASSWORD MATCHES THEN MOVE TO REQUIRD PAGE
+                            // IF PASSWORD MATCHES THEN MOVE TO REQUIRD PAGE AND SET THE COOKIES
+                            setcookie("professor_loggedIn", $username, time() + (86400 * 30), '/');
+                            setcookie("student_loggedIn", "", time() - 3600,"/");
+                            setcookie("admin_loggedIn", "", time() - 3600,"/");
+                            
                             header("Location: http://localhost:8080/online-examination-system/views/professorAccess.php");
 
                         }else{

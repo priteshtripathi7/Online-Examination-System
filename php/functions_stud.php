@@ -22,6 +22,11 @@
                     $row_cnt = mysqli_num_rows($result);
                     if($row_cnt == 1){
                         if($row["password"] == md5($password)){
+
+                            setcookie("student_loggedIn", $username, time() + (86400 * 30), '/');
+                            setcookie("professor_loggedIn", "", time() - 3600,"/");
+                            setcookie("admin_loggedIn", "", time() - 3600,"/");
+
                             header("Location: http://localhost:8080/online-examination-system/views/studentAccess.php");
                         }else{
                             $mssg = "

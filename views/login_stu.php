@@ -1,3 +1,9 @@
+<?php
+    if(isset($_COOKIE["student_loggedIn"])){
+        header("Location: http://localhost:8080/online-examination-system/views/studentAccess.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
