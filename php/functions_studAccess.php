@@ -107,7 +107,7 @@
                 }else{
                     $row = mysqli_fetch_array($result, MYSQLI_NUM);
                     if($row[0] == md5($password)){
-                        
+                        setcookie("test_id", $test_id, time() + (86400 * 30), '/');
                         header("Location: http://localhost:8080/online-examination-system/views/test_page.php");
                     }else{
                         $script = "

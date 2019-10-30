@@ -1,10 +1,3 @@
-<?php
-
-    require './../php/function_testPage.php';
-
-?>
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -30,42 +23,15 @@
         <title>Online Examination System</title>
     </head>
     <body>
-        
-        <?php
-            outputRules();
-        ?>
-
-        
             
-        <div id="subject_questions" class="container" style="padding-top:2%; display:none;">
-            <?php
-                outputTestDetails();
-            ?>
-            <br>
-            <div class="accordion" id="test_questions">
-                <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])  ?>">
-                    <?php
-                        outputQuestions();
-                    ?>
-                    <br><br>
-                    <input type="submit" name="submit" value="Finish Test" class="btn btn-primary">
-                </form>
-            </div>
-        </div>
         <script>
+            
             $(document).ready(function(){
                 $('#full-scr').click(function(){
-                    $('#subject_questions').css('display', 'block');
-                    $('#rules').css('display', 'none');
                     document.documentElement.requestFullscreen();
                 });
             });
-            $('input[type=radio]').click(function(){
-                if (this.previous) {
-                    this.checked = false;
-                }
-                this.previous = this.checked;
-            });
+
         </script>
     </body>
 </html>

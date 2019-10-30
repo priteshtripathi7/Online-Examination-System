@@ -1,3 +1,7 @@
+*:focus {
+    outline: none !important;
+}
+
 #full-size{
     background-image: url('../img/index-main.jpg');
     height: 100vh; 
