@@ -190,12 +190,10 @@
                 $db_errors = add_user_to_db($occupation,$firstname,$lastname,$username,$usercourses, $email);
                 if(count($db_errors) == 0){
                     $mssg = "
-                        <div class=\"alert alert-success alert-dismissible fade show \" role=\"alert\"  style=\"display:block !important; margin-left:auto !important; margin-right:auto !important;top:3vh !important;\">
-                            <strong>Success!</strong> The user is successfully added and a mail has been sent to him.
-                            <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-                                <span aria-hidden=\"true\">&times;</span>
-                            </button>
-                        </div>
+                        <script>
+                            alert('The user is successfully added and a mail has been sent to him.');
+                        </script>
+                        
                     ";
                     echo $mssg;                    
                 }else{
