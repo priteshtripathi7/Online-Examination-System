@@ -104,7 +104,7 @@
                                 <input type="submit" class="btn btn-primary btn-lg" value="Add User" name="adduser" id="adduser">
                             </div>
                             <div class="col-sm-6">
-                                <button type="button" class="btn btn-primary btn-lg float-right" name="adduser" id="adduser">LogOut</button>
+                                <a class="btn btn-primary btn-lg float-right" href="./../logout-system/admin_logout.php" style="color:white;">Logout</a>
                             </div>
                         </div>
                     </form>

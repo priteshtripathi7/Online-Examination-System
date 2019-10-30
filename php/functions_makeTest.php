@@ -16,7 +16,6 @@
             if(!$result){
                 die("ERROR: Could not connect.");
             }else{
-                $row_cnt = mysqli_num_rows($result);
                 while($row = mysqli_fetch_array($result, MYSQLI_NUM)) {
                     echo var_dump($row);
                     $option = "
@@ -40,7 +39,9 @@
                 $test_subject        =     $_POST["test_subject"];
                 $test_topic          =     $_POST["test_topic"];
                 $time_alloted        =     $_POST["test_time"];
-                $num_of_questions    =     $_POST["number_of_questions"];
+                $num_of_questions    =     0;
+                $test_password       =     $_POST["test_password"];
+                $test_password       =     md5($test_password);
 
                 $test_id             =     $test_subject;
                 $test_id            .=     $test_topic;
@@ -52,11 +53,12 @@
                 foreach($_POST as $key => $value){
                     if(preg_match("/_correct_answer/",$key)){
                         $answer_str  .=  $value;
+                        $num_of_questions++;
                     }
                 }
 
-                $query =    "INSERT INTO test_details(test_id, test_subject, test_topic, test_num_of_ques, 	teacher_id, test_answers, 	time_alloted)
-                                    VALUES ('$test_id', '$test_subject', '$test_topic', '$num_of_questions', '$professor', '$answer_str', '$time_alloted')";
+                $query =    "INSERT INTO test_details(test_id, test_subject, test_topic, test_num_of_ques, 	teacher_id, test_answers, 	time_alloted, test_password)
+                                    VALUES ('$test_id', '$test_subject', '$test_topic', '$num_of_questions', '$professor', '$answer_str', '$time_alloted', '$test_password')";
                 
                 $result = mysqli_query($con, $query);
                 if(!$result){

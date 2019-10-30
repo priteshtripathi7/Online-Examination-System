@@ -46,7 +46,6 @@ const addQuestion = ()=>{
 
     // UPDATING NUMBER OF QUESTIONS
     const questionCounter = document.getElementById('number_of_questions');
-    console.log(questionCounter);
     let num_of_questions = parseInt(questionCounter.value);
     num_of_questions++;
     questionCounter.value = num_of_questions;
@@ -72,6 +71,7 @@ const addThisEventToInput = ()=>{
         if(num_of_times > 4){
             num_of_times = 4;
         }
+        DOMElement.value = num_of_times;
         for(let i=0; i<num_of_times; i++){
             
             let HTMLText = `

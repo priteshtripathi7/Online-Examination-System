@@ -92,13 +92,20 @@
                     </div>
                 </div>
 
-                <div class="form-group row" style="display: none;">
+                <div class="form-group row">
                     <label for="number_of_questions" class="col-sm-2 col-form-label">Number of Questions:</label>
                     <div class="col-sm-10">
-                        <input type="number" class="form-control" name="number_of_questions" id="number_of_questions" value="0">
+                        <input type="number" class="form-control" name="number_of_questions" id="number_of_questions" value="0" disabled>
                     </div>
                 </div>
                 
+                <div class="form-group row">
+                    <label for="test_password" class="col-sm-2 col-form-label">Test Access Password:</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" name="test_password" id="test_password" required>
+                    </div>
+                </div>
+
                 <div id="questions_list">
                     <!--
                         QUESTION LIST GOES HERE....
@@ -119,7 +126,8 @@
                 
             </form>
         </div>
-
+        <br>
+        <br>
         <script>
             document.getElementById('number_of_questions').value = '0';
             // window.onbeforeunload = function(){
