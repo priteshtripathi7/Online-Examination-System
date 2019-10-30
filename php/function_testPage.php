@@ -1,5 +1,7 @@
 <?php
-    
+    require './../PHPMailerAutoload.php';
+    require './../php/config.php';
+
     // ***************   TEST PAGE FUNCTIONS ********************//
 
     // Function 1: This function outputs the rules of the test.
@@ -179,13 +181,12 @@
         if($_SERVER["REQUEST_METHOD"] == "POST"){
             $con = mysqli_connect('localhost', 'root', '', 'online-examination-system');
             if($con == false){
-                echo "Hello1";
                 die("Error: Could not connect. ". mysqli_connect_errno());
             }else{
                 $test_id = $_COOKIE["test_id"];
                 $student = $_COOKIE["student_loggedIn"];
 
-                $query = "  SELECT test_num_of_ques, test_answers
+                $query = "  SELECT test_num_of_ques, test_answers, test_subject, test_topic
                             FROM test_details
                             WHERE test_id = '$test_id';
                 ";
@@ -193,12 +194,13 @@
                 $result = mysqli_query($con, $query);
 
                 if(!$result){
-                    echo "Hello2";
                     die("Error: Could Not Connect");
                 }else{
                     $row = mysqli_fetch_array($result, MYSQLI_NUM);
                     $num_of_questions           =       $row[0];
                     $test_answers               =       $row[1];
+                    $subject                    =       $row[2];
+                    $topic                      =       $row[3];    
                     $response_array             =       "";
                     
                     for($i = 1; $i <= $num_of_questions; $i++){
@@ -226,9 +228,58 @@
                     $result = mysqli_query($con, $query);
 
                     if(!$result){
-                        echo "Hello3";
+                        echo "Hello2";
                         die("Error: Could Not connect. ".mysqli_connect_errno());
                     }else{
+
+                        $query = "
+                            SELECT email,firstname,lastname
+                            FROM student
+                            WHERE student_username = '$student'
+                        ";
+                        $result = mysqli_query($con, $query);
+                        if(!$result){
+                            echo "Hello1";
+                            die("Error: Could Not connect. ".mysqli_connect_errno());
+                        }else{
+                            $row = mysqli_fetch_array($result, MYSQLI_NUM);
+
+                            $email              =           $row[0];
+                            $fname              =           $row[1];
+                            $lname              =           $row[2];
+
+                            $mail = new PHPMailer;
+                            //$mail->SMTPDebug = 4;                                 // Enable verbose debug output
+                            $mail->isSMTP();                                      // Set mailer to use SMTP
+                            $mail->Host = "smtp.gmail.com";                       // Specify main and backup SMTP servers
+                            $mail->SMTPAuth = true;                               // Enable SMTP authentication
+                            $mail->Username = EMAIL;                              // SMTP username
+                            $mail->Password = PASSWORD;                           // SMTP password
+                            $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+                            $mail->Port = 587;                                    // TCP port to connect to
+                            $mail->setFrom(EMAIL, 'Online-Examination-Admin');
+                            $mail->addAddress($email);     // Add a recipient
+                            $mail->addReplyTo(EMAIL);
+                            
+                            // $mail->addCC('cc@example.com');
+                            // $mail->addBCC('bcc@example.com');
+
+                            // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+                            // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+                            $mail->isHTML(true);                                  // Set email format to HTML
+
+                            $mail->Subject = 'Score of test';
+                            $mail->Body    = '<h1>HELLO '.$fname.' '.$lname.' This is the results of your attempted test.</h1>
+                                            <p>Subject: <b>'.$subject.'</b></p>
+                                            <p>Topic: <b>'.$topic.'</b></p>
+                                            <p>Marks Obtained: <b>'.$correct_answers.' out of '.$num_of_questions.'</b></p>
+                                            ';
+                            $mail->AltBody = 'HELLO '.$fname.' '.$lname.' This is the results of your attempted test.
+                            Subject: '.$subject.'Topic: '.$topic.' Marks Obtained: '.$correct_answers.'  out of  '.$num_of_questions.'.';
+
+                            $mail->send();
+                        }
+
                         setcookie("test_id", "", time() - 3600,"/");
                         header("Location: http://localhost:8080/online-examination-system/views/studentAccess.php");
                     }
