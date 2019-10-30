@@ -50,6 +50,9 @@
                         <a class="nav-link" href="#">Available Tests<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="./studentResults.php">Previous Results</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link btn btn-primary" href="./../logout-system/stud_logout.php" style="color:white;">Logout</a>
                     </li>
                 </ul>

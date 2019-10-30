@@ -103,3 +103,10 @@ const deleteQuestion = (e)=>{
     questionCounter.value = num_of_questions;
 
 };
+
+const callLocalStorage = (event)=>{
+    let test_id = event.target.id;
+    localStorage.setItem("test_id", test_id);
+    window.location.assign("http://localhost:8080/online-examination-system/views/see_response.php");
+}
+

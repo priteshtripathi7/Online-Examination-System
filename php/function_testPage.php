@@ -1,5 +1,7 @@
 <?php
     
+    // ***************   TEST PAGE FUNCTIONS ********************//
+
     // Function 1: This function outputs the rules of the test.
     
     function outputRules(){
@@ -101,6 +103,7 @@
     }
 
     // Function 3: This function fetches and outputs the questions.
+
     function outputQuestions(){
         $con = mysqli_connect('localhost', 'root', '', 'online-examination-system');
         if($con == false){
@@ -132,9 +135,10 @@
 
                     for($i = 3; $i <= 6; $i++){
                         if($row[$i] != "NULL"){
+                            $val = $i - 2;
                             $temp = '
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="'.$question_number.'" id="'.$question_number.'" value="'.$row[$i].'">
+                                <input class="form-check-input" type="radio" name="question_'.$question_number.'" id="'.$question_number.'" value="'.$val.'">
                                 <label class="form-check-label" for="'.$question_number.'">
                                     '.$row[$i].'
                                 </label>
@@ -168,4 +172,71 @@
             }
         }
     }
+
+    // Function 4: This function validates the response of the student
+
+    function submitResponse(){
+        if($_SERVER["REQUEST_METHOD"] == "POST"){
+            $con = mysqli_connect('localhost', 'root', '', 'online-examination-system');
+            if($con == false){
+                echo "Hello1";
+                die("Error: Could not connect. ". mysqli_connect_errno());
+            }else{
+                $test_id = $_COOKIE["test_id"];
+                $student = $_COOKIE["student_loggedIn"];
+
+                $query = "  SELECT test_num_of_ques, test_answers
+                            FROM test_details
+                            WHERE test_id = '$test_id';
+                ";
+
+                $result = mysqli_query($con, $query);
+
+                if(!$result){
+                    echo "Hello2";
+                    die("Error: Could Not Connect");
+                }else{
+                    $row = mysqli_fetch_array($result, MYSQLI_NUM);
+                    $num_of_questions           =       $row[0];
+                    $test_answers               =       $row[1];
+                    $response_array             =       "";
+                    
+                    for($i = 1; $i <= $num_of_questions; $i++){
+                        if(isset($_POST["question_".$i])){
+                            $response_array .= $_POST["question_".$i];
+                        }else{
+                            $temp = "_";
+                            $response_array .= $temp;
+                        }
+                    }
+                    
+                    $correct_answers = 0;
+
+                    for($i = 0; $i < $num_of_questions; $i++){
+                        if($response_array[$i] == $test_answers[$i]){
+                            $correct_answers++;
+                        }
+                    }
+
+                    $query = "
+                        INSERT INTO responses(test_id, student_id, student_response, marks_obtained)
+                        VALUES ('$test_id', '$student', '$response_array', $correct_answers)
+                    ";
+
+                    $result = mysqli_query($con, $query);
+
+                    if(!$result){
+                        echo "Hello3";
+                        die("Error: Could Not connect. ".mysqli_connect_errno());
+                    }else{
+                        setcookie("test_id", "", time() - 3600,"/");
+                        header("Location: http://localhost:8080/online-examination-system/views/studentAccess.php");
+                    }
+                }
+            }
+        };
+    }
+
+    // ***************   TEST PAGE FUNCTIONS ENDS ********************//
+
 ?>

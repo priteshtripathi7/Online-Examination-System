@@ -1,3 +1,7 @@
+<?php
+    require './../php/functions_studAccess.php';
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,7 +33,7 @@
             <span style="color:white; padding-left:2%;">
                 
                 <?php
-                    $user = $_COOKIE["professor_loggedIn"];
+                    $user = $_COOKIE["student_loggedIn"];
                     echo $user;
                 ?>
             </span>
@@ -40,33 +44,33 @@
             
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03" style="padding-left:65vw;">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="./studentAccess.php">Available Tests</a>
+                    </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Test Results<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#">Previous Results<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./makeTest.php">Make Test</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-primary" href="./../logout-system/prof_logout.php" style="color:white;">Logout</a>
+                        <a class="nav-link btn btn-primary" href="./../logout-system/stud_logout.php" style="color:white;">Logout</a>
                     </li>
                 </ul>
             </div>
         </nav>
         
         <div class="jumbotron">
-            <h1 class="display-2">Tests Results</h1>
+            <h1 class="display-2">Previous Results</h1>
         </div>
 
         <div class="container">
             <div class="row">
                 
                 <?php
-                    require './../php/functions_profAccess.php';
-                    listOutTests();
+
+                    outputAttemptedTests();
+
                 ?>
 
             </div>
         </div>
-        <script src="./../js/app.js"></script>
     </body>
 </html>

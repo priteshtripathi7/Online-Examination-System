@@ -40,8 +40,8 @@
             
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03" style="padding-left:65vw;">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Test Results<span class="sr-only">(current)</span></a>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="./professorAccess.php">Test Results</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./makeTest.php">Make Test</a>
@@ -54,18 +54,28 @@
         </nav>
         
         <div class="jumbotron">
-            <h1 class="display-2">Tests Results</h1>
+            <h1 class="display-3">Responses</h1>
+            <?php
+                require './../php/functions_profAccess.php';
+                testDetails();
+            ?>
         </div>
 
         <div class="container">
-            <div class="row">
-                
-                <?php
-                    require './../php/functions_profAccess.php';
-                    listOutTests();
-                ?>
-
-            </div>
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Registration No.</th>
+                        <th scope="col">Marks Obtained</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        outputResponses();
+                    ?>
+                </tbody>
+            </table>
         </div>
         <script src="./../js/app.js"></script>
     </body>

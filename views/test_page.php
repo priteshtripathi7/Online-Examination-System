@@ -1,9 +1,9 @@
 <?php
 
     require './../php/function_testPage.php';
+    submitResponse();
 
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -35,8 +35,6 @@
             outputRules();
         ?>
 
-        
-            
         <div id="subject_questions" class="container" style="padding-top:2%; display:none;">
             <?php
                 outputTestDetails();

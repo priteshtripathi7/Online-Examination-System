@@ -15,7 +15,12 @@
                 SELECT * FROM courses_student 
                 INNER JOIN test_details 
                 ON test_details.test_subject = courses_student.course_id 
-                WHERE courses_student.student_id = '$student'
+                WHERE courses_student.student_id = '$student' AND
+                test_details.test_id NOT IN (
+                                                SELECT test_id 
+                                                FROM responses
+                                                WHERE student_id = '$student'
+                                            )
             "; 
 
             $result = mysqli_query($con, $query);
@@ -78,13 +83,13 @@
                     </div>
                     </div>
                 ";
-
+                
                 echo $HTML;
             }
         }
     }
 
-    // FUNCTION 2 : This function validates the settings and 
+    // FUNCTION 2 : This function validates the settings and starts the test
 
     function beginTest(){
         if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -118,6 +123,64 @@
                         echo $script;
                     }
                 }
+            }
+        }
+    }
+
+    // Function 3: This function outputs the attempted tests.
+
+    function outputAttemptedTests() {
+        $con = mysqli_connect('localhost', 'root', '', 'online-examination-system');
+        if($con == false){
+            die("Error: Could not connect ". mysqli_connect_errno());
+        }else{
+            $student = $_COOKIE["student_loggedIn"];
+            
+            $query = "
+                SELECT test_id , marks_obtained
+                FROM responses 
+                WHERE student_id = '$student'
+            "; 
+
+            $result = mysqli_query($con, $query);
+            
+            while($row = mysqli_fetch_array($result, MYSQLI_NUM)){
+                
+                $test_id                =           $row[0];
+                $marks_obtained         =           $row[1];
+
+                $query2 = "
+                    SELECT test_subject, test_topic, test_num_of_ques
+                    FROM test_details
+                    WHERE test_id = '$test_id'
+                ";
+
+                $result2 = mysqli_query($con, $query2);
+
+                if(!$result){
+                    die("Error: Could not connect.");
+                }else{
+                    $row2 = mysqli_fetch_array($result2, MYSQLI_NUM);
+                    $subject            =       $row2[0];
+                    $topic              =       $row2[1];
+                    $number_of_ques     =       $row2[2];
+
+                    $HTML = "
+                        <div class=\"card col-sm-6 col-md-4\" style=\"width: 8rem; padding: 1rem;\">
+                        <img src=\"./../img/".$subject.".jpg\" class=\"card-img-top\" alt=\"".$subject."\">
+                        <div class=\"card-body\">
+                            <h5 class=\"card-title\">".$subject."</h5>
+                            <p class=\"card-text\">
+                                <p>TOPIC  : <span style=\"font-weight:bold;\">".$topic."</span></p>
+                                <p>MARKS OBTAINED  : <span style=\"font-weight:bold;\">".$marks_obtained." out of ".$number_of_ques."</span></p>
+                            </p>
+                        </div>
+                        </div>
+                    ";
+
+                    echo $HTML;
+                }
+                
             }
         }
     }
