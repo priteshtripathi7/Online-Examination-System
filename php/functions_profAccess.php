@@ -124,7 +124,7 @@
                                     <td>'.$marks.'</td>
                                     <td>
                                         <form method = "POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">
-                                            <input type="submit" name="'.$test_id.'_'.$student.'" value="Clear Response" class="text-center btn btn-danger">
+                                            <input type="submit" name="'.$test_id.'%'.$student.'" value="Clear Response" class="text-center btn btn-danger">
                                         </form>
                                     <td>
                                 </tr>
@@ -145,7 +145,7 @@
                 die("Error: Could not connect ".mysqli_connect_errno());
             }else{
                 foreach($_POST as $key => $value){
-                    $res = explode("_", $key);
+                    $res = explode("%", $key);
                     $test_id = $res[0];
                     $student = $res[1];
 
