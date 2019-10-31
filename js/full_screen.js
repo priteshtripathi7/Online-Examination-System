@@ -3,7 +3,6 @@ $(document).ready(function(){
     // This adds a event listener of click on full screen mode
     $(document).on("keydown", keydown);
     $(document).on("keyup", keyup);
-    $(document).on("keydown", disableF5);
     
 
     $('#full-scr').click(function(){
@@ -11,14 +10,8 @@ $(document).ready(function(){
         $('#rules').css('display', 'none');
         document.documentElement.requestFullscreen();
         
-        $(document).keyup(function(e) {
-            if (e.key === "Escape") { 
-                console.log("Hello");
-               alert('You are exiting full screen');
-            }
-        });
-        
         let test_time = $('#exam-timer').text();
+        //let test_time = '0:10';
         
         let timer_decrement = setInterval( function() {
 
@@ -51,6 +44,11 @@ $(document).ready(function(){
         $('#subject_questions').css('display', 'none');
         $('#submit_status').css('display', 'block');
     });
+
+    $('#returntotest').click(function(){
+        document.documentElement.requestFullscreen();
+    })
+
 });
 
 function keydown(e) { 
@@ -70,11 +68,21 @@ function keyup(e){
         ctrlKeyDown = false;
 };
 
-function disableF5(e) { if ((e.which || e.keyCode) == 116 || (e.which || e.keyCode) == 82) e.preventDefault(); };
-
-
 document.addEventListener("keydown", e => {
     if(e.key == "F11") e.preventDefault();
 });
 
+document.addEventListener("fullscreenchange", onFullScreenChange, false);
+document.addEventListener("webkitfullscreenchange", onFullScreenChange, false);
+document.addEventListener("mozfullscreenchange", onFullScreenChange, false);
 
+function onFullScreenChange() {
+    if ((!window.screenTop && !window.screenY)) {
+        let scr1 = $('#subject_questions').css('display');
+        let scr2 = $('#rules').css('display');
+
+        if(scr1 == 'block' && scr2 == 'none'){
+            $('#confirmation').click();
+        }
+    }
+}

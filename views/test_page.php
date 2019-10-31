@@ -47,7 +47,33 @@
                         outputQuestions();
                     ?>
                     <br><br>
-                    <input type="submit" name="submit" id="submit" value="Finish Test" class="btn btn-primary">
+
+                    <button type="button" id="confirmation" class="btn btn-primary" data-toggle="modal" data-target="#finish_test">
+                        Finish Test
+                    </button>
+
+
+                    <div class="modal fade" id="finish_test" tabindex="-1" role="dialog" aria-labelledby="finish_testLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Finish test?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure you want to end test?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" id="returntotest" class="btn btn-secondary" data-dismiss="modal">Return</button>
+                                <input type="submit" name="submit" id="submit" value="Finish Test" class="btn btn-primary">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
                 </form>
             </div>
         </div>
