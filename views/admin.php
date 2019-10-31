@@ -57,7 +57,7 @@
                 </div>
             </div>
 
-            <div class="card container"  style="max-width: 45rem; background-color: rgba(0,0,0,0.7) !important; color:white; top: 15vh;">
+            <div class="card container"  style="max-width: 45rem; background-color: rgba(0,0,0,0.7) !important; color:white; top: 25vh;">
                 <h5 class="card-header display-4">Admin Login</h5>
                 <div class="card-body">
                     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
