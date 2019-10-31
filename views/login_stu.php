@@ -30,6 +30,29 @@
         </div>
 
         <div id="login-stu-full-size">
+            <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+                
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03" style="padding-left:70vw;">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="./admin.php">Admin Login</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Student Login<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="./login_prof.php">Professor Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
             <div class="card container"  style="max-width: 45rem; background-color: rgba(0,0,0,0.7) !important; color:white; top: 25vh;">
                 <h5 class="card-header display-4">Student's Login</h5>
                 <div class="card-body">

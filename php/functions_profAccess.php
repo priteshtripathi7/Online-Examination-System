@@ -122,6 +122,11 @@
                                     <th scope="row">'.$count.'</th>
                                     <td>'.$student.'</td>
                                     <td>'.$marks.'</td>
+                                    <td>
+                                        <form method = "POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">
+                                            <input type="submit" name="'.$test_id.'_'.$student.'" value="Clear Response" class="text-center btn btn-danger">
+                                        </form>
+                                    <td>
                                 </tr>
                             ';
                             echo $HTML;
@@ -131,7 +136,33 @@
                 }
             }
         }
-        
+    }
+
+    function checkDelete() {
+        if($_SERVER["REQUEST_METHOD"] == "POST"){
+            $con = mysqli_connect('localhost', 'root', '', 'online-examination-system');
+            if($con == false){
+                die("Error: Could not connect ".mysqli_connect_errno());
+            }else{
+                foreach($_POST as $key => $value){
+                    $res = explode("_", $key);
+                    $test_id = $res[0];
+                    $student = $res[1];
+
+                    $query = "
+                        DELETE FROM responses
+                        WHERE test_id = '$test_id' AND student_id = '$student'
+                    ";
+
+                    $result = mysqli_query($con, $query);
+                    if(!$result){
+                        die("Error: Could not connect ".mysqli_connect_errno());
+                    }else{
+                        header("Location: http://localhost:8080/online-examination-system/views/professorAccess.php");
+                    }
+                }
+            }
+        }
     }
 
 ?>

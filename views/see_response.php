@@ -1,3 +1,8 @@
+<?php
+    require './../php/functions_profAccess.php';
+    checkDelete();
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -56,7 +61,6 @@
         <div class="jumbotron">
             <h1 class="display-3">Responses</h1>
             <?php
-                require './../php/functions_profAccess.php';
                 testDetails();
             ?>
         </div>
@@ -68,6 +72,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Registration No.</th>
                         <th scope="col">Marks Obtained</th>
+                        <th scope="col">Clear</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -77,6 +82,5 @@
                 </tbody>
             </table>
         </div>
-        <script src="./../js/app.js"></script>
     </body>
 </html>

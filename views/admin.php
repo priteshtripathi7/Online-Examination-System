@@ -20,8 +20,33 @@
         <title>Admin's Login</title>
     </head>
     <body>
-        <div id="login-stu-full-size">
 
+        
+
+        <div id="login-stu-full-size">
+            <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+            
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03" style="padding-left:70vw;">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Admin Login<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="./login_stu.php">Student Login</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="./login_prof.php">Professor Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
             <div class="container" style="max-width: 45rem !important">
                 <div class="row text-center" id="error-div" style="max-width: 45rem;">
                     <!-- Error Alert -->

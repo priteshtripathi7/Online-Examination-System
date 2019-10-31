@@ -88,7 +88,7 @@
                 <div class="form-group row">
                     <label for="test_time" class="col-sm-2 col-form-label">Time alloted in minutes:</label>
                     <div class="col-sm-10">
-                        <input type="number" min="5" max="60" class="form-control" name="test_time" id="test_time" required>
+                        <input type="number" min="1" max="60" class="form-control" name="test_time" id="test_time" required>
                     </div>
                 </div>
 
@@ -136,5 +136,12 @@
             
         </script>
         <script src="./../js/app.js"></script>
+        <script type="text/javascript">
+            window.onbeforeunload = function() {
+                return "Dude, are you sure you want to leave? Think of the kittens!";
+            }
+        </script>
     </body>
 </html>
+
+
