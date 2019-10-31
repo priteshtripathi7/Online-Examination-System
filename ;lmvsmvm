@@ -1,0 +1,131 @@
+[33mcommit 6229308ab3f56d5134fcf32ea04930b0ec6ec012[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Pritesh Kumar Tripathi <pritesh.kt@gmail.com>
+Date:   Thu Oct 31 10:46:24 2019 +0530
+
+    Timer logic added
+
+[33mcommit b2965d53bcc6a619142a307805cbff4f82eac891[m
+Author: Pritesh Kumar Tripathi <pritesh.kt@gmail.com>
+Date:   Wed Oct 30 21:18:05 2019 +0530
+
+    Test marks mailing system done
+
+[33mcommit f091d3d30fadf4c5a08f487c7364b8df7ed7bfec[m
+Author: Pritesh Kumar Tripathi <pritesh.kt@gmail.com>
+Date:   Wed Oct 30 20:56:37 2019 +0530
+
+    See responses completed + responses saved to db - minor changes left
+
+[33mcommit 5bc4b1de4706f19b0ae49c84fa99b0aece3f0870[m
+Author: Pritesh Kumar Tripathi <pritesh.kt@gmail.com>
+Date:   Wed Oct 30 17:04:03 2019 +0530
+
+    Test page done + full screen mode - saving response
+
+[33mcommit eeef9a32b62a1ccc2184b748f89d5e7209e14921[m
+Author: Pritesh Kumar Tripathi <pritesh.kt@gmail.com>
+Date:   Wed Oct 30 13:45:19 2019 +0530
+
+    Student access done
+
+[33mcommit 3941a565961ace7f956f4ba69c91bc67d03d8911[m
+Author: Pritesh Kumar Tripathi <pritesh.kt@gmail.com>
+Date:   Wed Oct 30 09:36:50 2019 +0530
+
+    Some basic operations done.
+
+[33mcommit 6ca5dc2cf63894087fda8d57e8cde2c717976b4b[m
+Author: Pritesh Kumar Tripathi <pritesh.kt@gmail.com>
+Date:   Tue Oct 29 20:35:09 2019 +0530
+
+    Professor Access page updated
+
+[33mcommit 375d8ef2161cd9138004178752c857922561f1ad[m
+Author: Pritesh Kumar Tripathi <pritesh.kt@gmail.com>
+Date:   Tue Oct 29 19:40:39 2019 +0530
+
+    Test and questions saved + make test completed -alerting the user left
+
+[33mcommit 7af523f9225059eca5d3b96eba3154927a684dab[m
+Author: Pritesh Kumar Tripathi <pritesh.kt@gmail.com>
+Date:   Tue Oct 29 12:38:57 2019 +0530
+
+    Professor data stored + login system set up using cookies
+
+[33mcommit 922e417a51c81b9ca376b3aa1196ce971760d129[m
+Author: Pritesh Kumar Tripathi <pritesh.kt@gmail.com>
+Date:   Tue Oct 29 11:25:39 2019 +0530
+
+    Added comments
+
+[33mcommit 42446e086a073ce1896f1db5446cf35adde4b354[m
+Author: Pritesh Kumar Tripathi <pritesh.kt@gmail.com>
+Date:   Mon Oct 28 21:38:15 2019 +0530
+
+    Professor Access frontend done + Make test js code + frontend done.
+
+[33mcommit a20affdbbc4a7a87a820200391e6260794222b5b[m
+Author: Pritesh Kumar Tripathi <pritesh.kt@gmail.com>
+Date:   Sun Oct 27 16:38:42 2019 +0530
+
+    Login system for student and professor added.
+
+[33mcommit 746c3bb3bc60bdac3c4939bee946dce153f071e6[m
+Author: Pritesh Kumar Tripathi <pritesh.kt@gmail.com>
+Date:   Sat Oct 26 22:36:41 2019 +0530
+
+    Admin mailing system added.
+
+[33mcommit 90f2e518a30213e8ce181953fbea41044c9233d6[m
+Author: Pritesh Kumar Tripathi <pritesh.kt@gmail.com>
+Date:   Sat Oct 26 19:29:29 2019 +0530
+
+    Add user page working perfectly along with database connectivity, Send email left.
+
+[33mcommit 8154ddd7ab144a793e5a195978dcd74d9c341ae4[m
+Author: Pritesh Kumar Tripathi <pritesh.kt@gmail.com>
+Date:   Sat Oct 26 11:33:40 2019 +0530
+
+    Admin login page working.
+
+[33mcommit e8a435ba10463975d5faacb749d94700b9ca8f5c[m
+Author: Pritesh Kumar Tripathi <pritesh.kt@gmail.com>
+Date:   Fri Oct 25 19:54:26 2019 +0530
+
+    Admin pass reached.
+
+[33mcommit 9f829ef0c32dd23b6ad003d5e228ced4acb4c1bf[m
+Author: Pritesh Kumar Tripathi <pritesh.kt@gmail.com>
+Date:   Fri Oct 25 18:13:41 2019 +0530
+
+    Admin login start
+
+[33mcommit 7c3f36bf82bccba7d1da2077aeec86698d03babe[m
+Author: Pritesh Kumar Tripathi <pritesh.kt@gmail.com>
+Date:   Thu Oct 24 22:46:16 2019 +0530
+
+    Added login pages frontend.
+
+[33mcommit 1b5f0570d9e39f4c646991dc1619b26a242a688b[m
+Author: Pritesh Kumar Tripathi <pritesh.kt@gmail.com>
+Date:   Thu Oct 24 20:19:59 2019 +0530
+
+    Template added
+
+[33mcommit 0e58938123811df738aa10af49dee6484d937078[m
+Author: Pritesh Kumar Tripathi <pritesh.kt@gmail.com>
+Date:   Tue Oct 22 01:09:58 2019 +0530
+
+    Home page added
+
+[33mcommit a2ac64e3f70e1fdb1bb9ab422e18a2aa7a9decae[m
+Author: Pritesh Kumar Tripathi <pritesh.kt@gmail.com>
+Date:   Tue Oct 22 00:10:29 2019 +0530
+
+    Changed Bootstrap to CDN network
+
+[33mcommit b5b5e36d5daf84705755f2389b9c095d143814dc[m
+Author: Pritesh Kumar Tripathi <pritesh.kt@gmail.com>
+Date:   Mon Oct 21 17:58:19 2019 +0530
+
+    Initial setup

@@ -93,7 +93,7 @@
                             Topic:<h5> '.$test_topic.' </h5>
                         </div>
                         <div class="col-md-3">
-                            Time:<h5><span id="exam-timer">'.$time_alloted.':00</span></h5>
+                            Time:<h5> '.$time_alloted.' </h5>
                         </div>
                     </div>
                 </div>
