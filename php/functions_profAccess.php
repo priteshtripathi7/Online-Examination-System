@@ -28,13 +28,13 @@
 
                     $HTML = "
                         <div class=\"card col-sm-6 col-md-4\" style=\"width: 8rem; padding: 1rem;\">
-                        <img src=\"./../img/".$subject.".jpg\" class=\"card-img-top\" alt=\"".$subject."\">
+                        <img src=\"./../img/".$subject.".jpg\" class=\"card-img-top \" alt=\"".$subject."\" style=\"height:30vh;\">
                         <div class=\"card-body\">
                             <h5 class=\"card-title\">".$subject."</h5>
                             <p class=\"card-text\">
                                 <p>TOPIC  : <span style=\"font-weight:bold;\">".$topic."</span></p>
                                 <p>NUMBER OF QUESTIONS  : <span style=\"font-weight:bold;\">".$number_of_ques."</span></p>
-                                <p>TIME ALLOTED  : <span style=\"font-weight:bold;\">".$time_alloted."</span></p>
+                                <p>TIME ALLOTED  : <span style=\"font-weight:bold;\">".$time_alloted."</span> minutes.</p>
                             </p>
                             <form method=\"GET\" action=\"./see_response.php\">
                             <input type=\"submit\" id=\"".$test_id."\" name=\"".$test_id."\" value=\"See responses\" class=\"btn btn-primary\" >
@@ -83,7 +83,7 @@
                         <br>
                         Maximum marks:  '.$number_of_ques.'
                         <br>
-                        Time alloted:   '.$time_alloted.'
+                        Time alloted:   '.$time_alloted.' minutes
                         </p>
                         ';
                         echo $HTML;
@@ -106,6 +106,7 @@
                         SELECT student_id, marks_obtained
                         FROM responses
                         WHERE test_id = '$test_id'
+                        ORDER BY student_id
                     ";
 
                     $result = mysqli_query($con, $query);
@@ -113,14 +114,37 @@
                         die("Error: Could not connect ".mysqli_connect_errno());
                     }else{
                         $count = 1;
+                        $row_count = mysqli_num_rows($result);
+                        if($row_count == 0){
+                            $mssg = '
+                                <div class="alert alert-danger conatiner" role="alert">
+                                    There are no attempts yet.
+                                </div>
+                            ';
+                            echo $mssg;
+                        }
                         while($row = mysqli_fetch_array($result, MYSQLI_NUM)){
                             $student            =        $row[0];
                             $marks              =        $row[1];
 
+                            $query2 = "
+                                SELECT firstname, lastname 
+                                FROM student
+                                WHERE student_username = '$student'
+                            ";
+
+                            $result2  = mysqli_query($con, $query2);
+
+                            $row2 = mysqli_fetch_array($result2, MYSQLI_NUM);
+
+                            $firstname         =       $row2[0];
+                            $lastname          =       $row2[1];
+                            $student           =       strtoupper($student);
                             $HTML = '
-                                <tr>
+                                <tr> 
                                     <th scope="row">'.$count.'</th>
                                     <td>'.$student.'</td>
+                                    <td>'.$firstname.' '.$lastname.'</td>
                                     <td>'.$marks.'</td>
                                     <td>
                                         <form method = "POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">

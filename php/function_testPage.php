@@ -267,13 +267,34 @@
                             // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
                             // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
                             $mail->isHTML(true);                                  // Set email format to HTML
+                            
+                            $mssg = '
+                                    <!DOCTYPE html>
+                                    <html>
+                                        <head>
+                                            
+                                            <title>Result</title>
+                                        </head>
+                                        <body>
+                                            <div class="jumbotron" style="background-color: palegoldenrod; padding:2em;">
+                                                <h1 class="display-3">'.$subject.'</h1>
+                                                <p class="lead">
+                                                    Topic: '.$topic.'
+                                                </p>
+                                                <div class="conatiner">
+                                                    <div class="alert alert-info">
+                                                        <strong>Hello!</strong> '.$fname.' '.$lname.'.
+                                                        This is to inform you that you have obtained '.$correct_answers.' out of '.$num_of_questions.' in '.$subject.' test on the topic '.$topic.'.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </body>
+                                    </html>
+                            ';
 
-                            $mail->Subject = 'Score of test';
-                            $mail->Body    = '<h1>HELLO '.$fname.' '.$lname.' This is the results of your attempted test.</h1>
-                                            <p>Subject: <b>'.$subject.'</b></p>
-                                            <p>Topic: <b>'.$topic.'</b></p>
-                                            <p>Marks Obtained: <b>'.$correct_answers.' out of '.$num_of_questions.'</b></p>
-                                            ';
+                            $mail->Subject = 'Attempted Test';
+                            $mail->Body    = $mssg;
                             $mail->AltBody = 'HELLO '.$fname.' '.$lname.' This is the results of your attempted test.
                             Subject: '.$subject.'Topic: '.$topic.' Marks Obtained: '.$correct_answers.'  out of  '.$num_of_questions.'.';
 

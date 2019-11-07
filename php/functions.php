@@ -292,6 +292,31 @@
                         $mail->addAddress($email);     // Add a recipient
                         $mail->addReplyTo(EMAIL);
                         
+                        $mssg = '
+                                    <!DOCTYPE html>
+                                    <html>
+                                        <head>
+                                            
+                                            <title>Result</title>
+                                        </head>
+                                        <body>
+                                            <div class="jumbotron" style="background-color: palegoldenrod; padding:2em;">
+                                                <h1 class="display-3">Registration Details</h1>
+                                                
+                                                <div class="conatiner">
+                                                    <div class="alert alert-info">
+                                                    <h1>This is to inform that you have been registered.....</h1>
+                                                    by the ADMIN of the Online-Examination-System.<br>
+                                                    <p>Your Username is <b>'.$username.'</b> and your Password is <b>'.$username.'. Use the above credentials to login into your account.</b></p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </body>
+                                    </html>
+                            ';
+
                         // $mail->addCC('cc@example.com');
                         // $mail->addBCC('bcc@example.com');
 
@@ -300,11 +325,7 @@
                         $mail->isHTML(true);                                  // Set email format to HTML
 
                         $mail->Subject = 'You have been registed ... !!!';
-                        $mail->Body    = '<h1>This is to inform that you have been registered.....</h1>
-                                          by the ADMIN of the Online-Examination-System.<br>
-                                          <p>Your Username is <b>'.$username.'</b></p>
-                                          <p>Your Password is <b>'.$username.'</b></p>
-                                          ';
+                        $mail->Body    = $mssg;
                         $mail->AltBody = "This is to inform you that you have been registered to the institute online system
                         by the Admin. Your username is ".$username." and password is ".$username." .";
 
