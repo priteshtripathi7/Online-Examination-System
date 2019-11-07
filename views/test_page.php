@@ -92,10 +92,14 @@
         <script src="./../js/full_screen.js"></script>
         <script>
             $(document).ready(function(){
+                let temp = true;
                 $(window).blur(function(e) {
-                    $('#subject_questions').css('display', 'none');
-                    $('#submit_status').css('display', 'block');
-                    $('#submit').click();
+                    if(temp){
+                        temp = false;
+                        $('#subject_questions').css('display', 'none');
+                        $('#submit_status').css('display', 'block');
+                        $('#submit').click();
+                    }
                 });
             });
         </script>
