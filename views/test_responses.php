@@ -47,8 +47,8 @@
                     <li class="nav-item ">
                         <a class="nav-link" href="./studentAccess.php">Available Tests</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Previous Results<span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./studentResults.php">Previous Results</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn btn-primary" href="./../logout-system/stud_logout.php" style="color:white;">Logout</a>

@@ -90,5 +90,14 @@
         </div>
 
         <script src="./../js/full_screen.js"></script>
+        <script>
+            $(document).ready(function(){
+                $(window).blur(function(e) {
+                    $('#subject_questions').css('display', 'none');
+                    $('#submit_status').css('display', 'block');
+                    $('#submit').click();
+                });
+            });
+        </script>
     </body>
 </html>

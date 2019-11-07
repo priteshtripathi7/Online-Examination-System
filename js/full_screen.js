@@ -48,7 +48,6 @@ $(document).ready(function(){
     $('#returntotest').click(function(){
         document.documentElement.requestFullscreen();
     })
-
 });
 
 function keydown(e) { 

@@ -30,13 +30,16 @@
 
                 $HTML = '
                     <div class="card container" id="rules"  style="max-width: 45rem;; top: 25vh;">
-                    <h5 class="card-header h5">Test\'s Rule</h5>
+                    <h5 class="card-header h5">General Rules\'s Rule</h5>
                     <div class="card-body">
                         <ul>
                             <li>1.This test consists of '.$num_of_questions.' questions.</li>
                             <li>2.The time alloted for this test is '.$time_alloted.' minutes.</li>
                             <li>3.On clicking the below button the browser will go full screen.</li>
-                            <li>4.The moment you exit full screen or submit the test its over.</li>
+                            <li>4.<b>The test must be given in full screen only</b></li>
+                            <li>5.<b>Do not exit full screen</b> as it may lead to end your test.</li>
+                            <li>6.<b>Do not switch tabs or close the browser</b> as it may lead to end your test.</li>
+                            <li>7.The moment you exit full screen or submit the test, the test will be its over.</li>
                             <br>
                             <div >
                                 <button type="button" id="full-scr" class="btn btn-primary">Go full screen</button>
@@ -204,7 +207,7 @@
                     $response_array             =       "";
                     
                     for($i = 1; $i <= $num_of_questions; $i++){
-                        if(isset($_POST["question_".$i])){
+                        if(isset($_POST["question_".$i]) ){
                             $response_array .= $_POST["question_".$i];
                         }else{
                             $temp = "_";
