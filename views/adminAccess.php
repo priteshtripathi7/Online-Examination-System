@@ -101,10 +101,10 @@
 
                         <div class="form-group row">
                             <div class="col-sm-6 ">
-                                <input type="submit" class="btn btn-primary btn-lg" value="Add User" name="adduser" id="adduser">
+                                <input type="submit" class="btn btn-info btn-lg" value="Add User" name="adduser" id="adduser">
                             </div>
                             <div class="col-sm-6">
-                                <a class="btn btn-primary btn-lg float-right" href="./../logout-system/admin_logout.php" style="color:white;">Logout</a>
+                                <a class="btn btn-info btn-lg float-right" href="./../logout-system/admin_logout.php" style="color:white;">Logout</a>
                             </div>
                         </div>
                     </form>

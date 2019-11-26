@@ -42,7 +42,7 @@
                             <li>7.The moment you exit full screen or submit the test, the test will be its over.</li>
                             <br>
                             <div >
-                                <button type="button" id="full-scr" class="btn btn-primary">Go full screen</button>
+                                <button type="button" id="full-scr" class="btn btn-info">Go full screen</button>
                             </div>
                         </ul>
                     </div>
@@ -119,7 +119,8 @@
             $query = "
                 SELECT * 
                 FROM question_details
-                WHERE test_id = '$test_id';
+                WHERE test_id = '$test_id'
+                ORDER by question_number ASC;
             ";
 
             $result = mysqli_query($con, $query);

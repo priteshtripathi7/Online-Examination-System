@@ -22,10 +22,10 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <title>Online Examination System</title>
     </head>
-    <body>
+    <body style="font-family: 'Raleway', sans-serif;">
         
-        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-            <i class="fa fa-user-circle" aria-hidden="true" style="color:white; padding-left:2%; font-size: 20px;"></i>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" style="background-color:#161616 !important; border-bottom: 10px solid #399ca4; padding-bottom: 0; ">
+            <i class="fa fa-user-circle" aria-hidden="true" style="color:white; padding-left:3%; font-size: 20px;"></i>
             <span style="color:white; padding-left:2%;">
                 
                 <?php
@@ -41,13 +41,13 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03" style="padding-left:65vw;">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Test Results<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#" style="display: inline-block; background-color:#399ca4;">Test Results<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./makeTest.php">Make Test</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-primary" href="./../logout-system/prof_logout.php" style="color:white;">Logout</a>
+                        <a class="nav-link btn " href="./../logout-system/prof_logout.php">Logout</a>
                     </li>
                 </ul>
             </div>

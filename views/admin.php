@@ -19,12 +19,9 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <title>Admin's Login</title>
     </head>
-    <body>
-
-        
-
+    <body style="font-family: 'Raleway', sans-serif;">
         <div id="login-stu-full-size">
-            <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" style="background-color:#161616 !important; border-bottom: 10px solid #399ca4; padding-bottom: 0; ">
             
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -36,7 +33,7 @@
                             <a class="nav-link" href="./index.html">Home</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Admin Login<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="#" style="display: inline-block; background-color:#399ca4;">Admin Login<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link" href="./login_stu.php">Student Login</a>
@@ -58,7 +55,7 @@
             </div>
 
             <div class="card container"  style="max-width: 45rem; background-color: rgba(0,0,0,0.7) !important; color:white; top: 25vh;">
-                <h5 class="card-header display-4">Admin Login</h5>
+                <h5 class="card-header display-4" style="font-family: 'Montserrat', sans-serif;">Admin Login</h5>
                 <div class="card-body">
                     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
                         <div class="form-group row">
@@ -75,7 +72,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-10 ">
-                                <input type="submit" class="btn btn-primary btn-lg" value="Login" name="login" id="login">
+                                <input type="submit" class="btn btn-info btn-lg" value="Login" name="login" id="login">
                             </div>
                         </div>
                     </form>

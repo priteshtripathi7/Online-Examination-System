@@ -45,7 +45,7 @@
                             <p>NUMBER OF QUESTIONS  : <span style=\"font-weight:bold;\">".$number_of_ques."</span></p>
                             <p>TIME ALLOTED  : <span style=\"font-weight:bold;\">".$time_alloted."</span> minutes.</p>
                         </p>
-                        <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#".$test_id."\">
+                        <button type=\"button\" class=\"btn btn-info\" data-toggle=\"modal\" data-target=\"#".$test_id."\">
                             Attempt
                         </button>
                     </div>
@@ -75,7 +75,7 @@
                                 </div>
                                 <div class=\"modal-footer\">
                                     <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>
-                                    <input type=\"submit\"  class=\"btn btn-primary\" value=\"Attempt\">
+                                    <input type=\"submit\"  class=\"btn btn-info\" value=\"Attempt\">
                                 </div>
                             </form>
                         </div>
@@ -182,7 +182,7 @@
                                 <p>MARKS OBTAINED  : <span style=\"font-weight:bold;\">".$marks_obtained." out of ".$number_of_ques."</span></p>
                             </p>
                             <form method=\"GET\" action=\"./test_responses.php\">
-                            <input type=\"submit\" id=\"".$test_id."\" name=\"".$test_id."\" value=\"Check answers\" class=\"btn btn-primary\" >
+                            <input type=\"submit\" id=\"".$test_id."\" name=\"".$test_id."\" value=\"Check answers\" class=\"btn btn-info\" >
                             </form>
                         </div>
                         </div>

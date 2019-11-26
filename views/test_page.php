@@ -48,7 +48,7 @@
                     ?>
                     <br><br>
 
-                    <button type="button" id="confirmation" class="btn btn-primary" data-toggle="modal" data-target="#finish_test">
+                    <button type="button" id="confirmation" class="btn btn-info" data-toggle="modal" data-target="#finish_test">
                         Finish Test
                     </button>
 
@@ -58,7 +58,6 @@
                             <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Finish test?</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
@@ -67,7 +66,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" id="returntotest" class="btn btn-secondary" data-dismiss="modal">Return</button>
-                                <input type="submit" name="submit" id="submit" value="Finish Test" class="btn btn-primary">
+                                <input type="submit" name="submit" id="submit" value="Finish Test" class="btn btn-info">
                             </div>
                             </div>
                         </div>
@@ -101,6 +100,7 @@
                         $('#submit').click();
                     }
                 });
+                
             });
         </script>
     </body>

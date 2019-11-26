@@ -26,9 +26,9 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <title>Online Examination System</title>
     </head>
-    <body>
+    <body style="font-family: 'Raleway', sans-serif;">
         
-        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" style="background-color:#161616 !important; border-bottom: 10px solid #399ca4; padding-bottom: 0; ">
             <i class="fa fa-user-circle" aria-hidden="true" style="color:white; padding-left:2%; font-size: 20px;"></i>
             <span style="color:white; padding-left:2%;">
                 
@@ -48,17 +48,17 @@
                         <a class="nav-link" href="./studentAccess.php">Available Tests</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Previous Results<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#" style="display: inline-block; background-color:#399ca4;">Previous Results<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-primary" href="./../logout-system/stud_logout.php" style="color:white;">Logout</a>
+                        <a class="nav-link btn" href="./../logout-system/stud_logout.php">Logout</a>
                     </li>
                 </ul>
             </div>
         </nav>
         
         <div class="jumbotron">
-            <h1 class="display-2">Previous Results</h1>
+            <h1 class="display-2" style="font-family: 'Montserrat', sans-serif;">Previous Results</h1>
         </div>
 
         <div class="container">

@@ -37,7 +37,7 @@
                                 <p>TIME ALLOTED  : <span style=\"font-weight:bold;\">".$time_alloted."</span> minutes.</p>
                             </p>
                             <form method=\"GET\" action=\"./see_response.php\">
-                            <input type=\"submit\" id=\"".$test_id."\" name=\"".$test_id."\" value=\"See responses\" class=\"btn btn-primary\" >
+                            <input type=\"submit\" id=\"".$test_id."\" name=\"".$test_id."\" value=\"See responses\" class=\"btn btn-info\" >
                             </form>
                             
                         </div>

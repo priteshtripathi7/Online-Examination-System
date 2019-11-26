@@ -17,20 +17,12 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <title>Student's Login</title>
     </head>
-    <body>
+    <body style="font-family: 'Raleway', sans-serif;">
 
-        <div class="container" style="max-width: 45rem !important">
-            <div class="row text-center" id="error-div" style="max-width: 45rem;">
-                <!-- Error Alert -->
-                <?php
-                    require "./../php/functions_stud.php";
-                    validate_student_login();
-                ?>
-            </div>
-        </div>
+        
 
         <div id="login-stu-full-size">
-            <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" style="background-color:#161616 !important; border-bottom: 10px solid #399ca4; padding-bottom: 0; ">
                 
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -45,7 +37,7 @@
                             <a class="nav-link" href="./admin.php">Admin Login</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Student Login<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="#" style="display: inline-block; background-color:#399ca4;">Student Login<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link" href="./login_prof.php">Professor Login</a>
@@ -53,8 +45,19 @@
                     </ul>
                 </div>
             </nav>
+
+            <div class="container" style="max-width: 45rem !important">
+                <div class="row text-center" id="error-div" style="max-width: 45rem;">
+                    <!-- Error Alert -->
+                    <?php
+                        require "./../php/functions_stud.php";
+                        validate_student_login();
+                    ?>
+                </div>
+            </div>
+
             <div class="card container"  style="max-width: 45rem; background-color: rgba(0,0,0,0.7) !important; color:white; top: 25vh;">
-                <h5 class="card-header display-4">Student's Login</h5>
+                <h5 class="card-header display-4" style="font-family: 'Montserrat', sans-serif;">Student's Login</h5>
                 <div class="card-body">
                     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
                         <div class="form-group row">
@@ -71,7 +74,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-10 ">
-                            <input type="submit" class="btn btn-primary btn-lg" value="Login" name="login" id="login">
+                            <input type="submit" class="btn btn-info btn-lg" value="Login" name="login" id="login">
                             </div>
                         </div>
                     </form>
