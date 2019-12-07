@@ -25,7 +25,7 @@
                     if($row_cnt == 1){
                         if($row["password"] == $password){
 
-                            setcookie("admin_loggedIn", $username, time() + (86400 * 30), '/');
+                            setcookie("admin_loggedIn", $username, time() + (86400), '/');
                             setcookie("professor_loggedIn", "", time() - 3600,"/");
                             setcookie("student_loggedIn", "", time() - 3600,"/");
 
